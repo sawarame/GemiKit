@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Enhance Gemini",
+  "version": "1.0",
+  "description": "Enhances the Gemini web interface.",
+  "permissions": ["storage"],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
