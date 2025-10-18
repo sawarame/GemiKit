@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Enhance Gemini",
+  "name": "Gemini Spark",
   "version": "1.0",
-  "description": "Enhances the Gemini web interface.",
+  "description": "Enhances the Google Gemini web interface with useful features.",
   "permissions": ["storage"],
   "options_ui": {
     "page": "options.html",
@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "matches": ["https://gemini.google.com/*"],
-      "js": ["content.js"]
+      "js": ["build/content.js"]
     }
   ]
 }

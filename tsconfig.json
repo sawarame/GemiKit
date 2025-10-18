@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es2015",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2016", "dom"],
+    "types": ["chrome"],
+    "outDir": "./build"
+  },
+  "include": ["*.ts"]
+}

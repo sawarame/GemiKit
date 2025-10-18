@@ -44,7 +44,7 @@ document.addEventListener('keydown', (event) => {
       
       const sendButton = document.querySelector('button.send-button');
       if (sendButton) {
-        sendButton.click();
+        (sendButton as HTMLElement).click();
       }
     }
     // Insert a newline with Enter, only when not composing
@@ -61,7 +61,9 @@ document.addEventListener('keydown', (event) => {
           bubbles: true,
           cancelable: true
       });
-      event.target.dispatchEvent(shiftEnterEvent);
+      if (event.target) {
+        (event.target as HTMLElement).dispatchEvent(shiftEnterEvent);
+      }
     }
   }
 }, true);

@@ -1,0 +1,24 @@
+{
+  "name": "gemini-spark",
+  "version": "1.0.0",
+  "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawarame/gemini-spark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sawarame/gemini-spark.git/issues"
+  },
+  "homepage": "https://github.com/sawarame/gemini-spark.git#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.1.24",
+    "typescript": "^5.9.3"
+  }
+}
