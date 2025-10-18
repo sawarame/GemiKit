@@ -5,13 +5,13 @@
   "description": "Enhances the Google Gemini web interface with useful features.",
   "permissions": ["storage"],
   "options_ui": {
-    "page": "options.html",
+    "page": "public/options.html",
     "open_in_tab": false
   },
   "content_scripts": [
     {
       "matches": ["https://gemini.google.com/*"],
-      "js": ["build/content.js"]
+      "js": ["dist/content.js"]
     }
   ]
 }
