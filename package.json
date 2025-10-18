@@ -4,7 +4,7 @@
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc && cp -r public dist/ && cp -r images dist/ && cp manifest.json dist/ && zip -r gemini-spark.zip dist"
   },
   "repository": {
     "type": "git",

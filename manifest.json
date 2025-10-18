@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Gemini Spark",
   "version": "1.0",
-  "description": "Enhances the Google Gemini web interface with useful features.",
+  "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "permissions": ["storage"],
   "options_ui": {
     "page": "public/options.html",
@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "matches": ["https://gemini.google.com/*"],
-      "js": ["dist/content.js"]
+      "js": ["content.js"]
     }
   ],
   "icons": {
