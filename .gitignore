@@ -4,5 +4,5 @@
 /node_modules
 
 # Build output
-/dist
+/gemini-spark/js
 gemini-spark.zip

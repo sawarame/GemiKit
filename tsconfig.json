@@ -8,7 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2016", "dom"],
     "types": ["chrome"],
-    "outDir": "./dist",
+    "outDir": "./gemini-spark/js",
     "rootDir": "./src"
   },
   "include": ["src/**/*.ts"]

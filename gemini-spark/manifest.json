@@ -5,13 +5,13 @@
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "permissions": ["storage"],
   "options_ui": {
-    "page": "public/options.html",
+    "page": "options.html",
     "open_in_tab": false
   },
   "content_scripts": [
     {
       "matches": ["https://gemini.google.com/*"],
-      "js": ["content.js"]
+      "js": ["js/content.js"]
     }
   ],
   "icons": {
