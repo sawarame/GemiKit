@@ -1,6 +1,6 @@
 {
   "name": "gemini-spark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
