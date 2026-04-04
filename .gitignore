@@ -6,3 +6,5 @@
 # Build output
 /gemini-spark/js
 gemini-spark.zip
+gemini-spark.crx
+gemini-spark.pem
