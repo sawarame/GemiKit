@@ -10,7 +10,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://gemini.google.com/*"],
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://notebooklm.google.com/*"
+      ],
       "js": ["js/content.js"]
     }
   ],

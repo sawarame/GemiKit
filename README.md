@@ -1,6 +1,6 @@
 # Gemini Spark
 
-Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。
+Google Gemini と NotebookLM のウェブインターフェースを強化するためのブラウザ拡張機能です。
 
 ## 主な機能
 
@@ -9,7 +9,12 @@ Google Gemini のウェブインターフェースを強化するためのブラ
   - メッセージを送信するには `Ctrl + Enter` (Macの場合は `Cmd + Enter`) を使用します。
 - **設定可能な動作**
   - この「Enterで改行」機能は、拡張機能のオプションページからいつでも有効/無効を切り替えることができます。
-  - 機能を無効にすると、`Enter` キーはGeminiのデフォルトの動作（メッセージの送信）に戻ります。
+  - 機能を無効にすると、`Enter` キーは各サービスのデフォルトの動作（メッセージの送信）に戻ります。
+
+## 対応サイト
+
+- **Google Gemini** (`https://gemini.google.com`)
+- **NotebookLM** (`https://notebooklm.google.com`)
 
 ## インストール方法（開発者向け）
 
@@ -23,7 +28,7 @@ Google Gemini のウェブインターフェースを強化するためのブラ
 
 ## 使い方
 
-1.  インストール後、Geminiのウェブサイト (`https://gemini.google.com`) を開きます。
+1.  インストール後、Gemini (`https://gemini.google.com`) または NotebookLM (`https://notebooklm.google.com`) を開きます。
 2.  デフォルトでは、チャット入力欄で `Enter` キーを押すと改行が入力されます。
 3.  メッセージを送信するには、`Ctrl + Enter` (Macの場合は `Cmd + Enter`) を押してください。
 
@@ -46,4 +51,4 @@ Google Gemini のウェブインターフェースを強化するためのブラ
     ```bash
     npm run build
     ```
-    コンパイルされたファイルは `build` ディレクトリに出力されます。
+    コンパイルされたファイルは `gemini-spark/js` ディレクトリに出力されます。
