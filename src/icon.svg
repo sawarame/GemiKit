@@ -1,0 +1,38 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gemini-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <!-- Gemini-like vibrant color gradient -->
+            <stop offset="0%" stop-color="#19C0F1"/>
+            <stop offset="30%" stop-color="#3459EB"/>
+            <stop offset="60%" stop-color="#B228E1"/>
+            <stop offset="100%" stop-color="#E23684"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Background rounded rectangle -->
+    <rect width="128" height="128" rx="28" fill="url(#gemini-gradient)"/>
+    
+    <!-- Sparkles -->
+    <!-- Large Sparkle (Bottom Left) -->
+    <g transform="translate(36, 82)">
+        <path d="M 0 -24 C 0 -9 9 0 24 0 C 9 0 0 9 0 24 C 0 9 -9 0 -24 0 C -9 0 0 -9 0 -24 Z" fill="#FFFFFF"/>
+    </g>
+    
+    <!-- Medium Sparkle (Top Center) -->
+    <g transform="translate(56, 36)">
+        <path d="M 0 -18 C 0 -7 7 0 18 0 C 7 0 0 7 0 18 C 0 7 -7 0 -18 0 C -7 0 0 -7 0 -18 Z" fill="#FFFFFF" opacity="0.95"/>
+    </g>
+    
+    <!-- Tiny decorative Sparkle (Top Right) -->
+    <g transform="translate(92, 20) scale(0.35)">
+        <path d="M 0 -30 C 0 -10 10 0 30 0 C 10 0 0 10 0 30 C 0 10 -10 0 -30 0 C -10 0 0 -10 0 -30 Z" fill="#FFFFFF" opacity="0.8"/>
+    </g>
+
+    <!-- Return / Enter Arrow -->
+    <g opacity="1">
+        <!-- Arrow Stalk: down and curve left -->
+        <path d="M 106 40 L 106 68 A 20 20 0 0 1 86 88 L 64 88" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Arrow Head (pointing left, hitting the Large Sparkle) -->
+        <path d="M 82 70 L 64 88 L 82 106" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</svg>

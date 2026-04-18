@@ -4,7 +4,8 @@
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && rm -rf gemini-spark.zip && (cd gemini-spark && zip -r ../gemini-spark.zip .)"
+    "build": "tsc && rm -rf gemini-spark.zip && (cd gemini-spark && zip -r ../gemini-spark.zip .)",
+    "generate-icons": "node scripts/generate-icons.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/sawarame/gemini-spark.git#readme",
   "devDependencies": {
     "@types/chrome": "^0.1.24",
+    "sharp": "^0.34.5",
     "typescript": "^5.9.3"
   }
 }
