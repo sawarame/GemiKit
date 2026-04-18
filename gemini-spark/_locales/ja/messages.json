@@ -1,0 +1,17 @@
+{
+  "extName": {
+    "message": "Gemini Spark"
+  },
+  "extDesc": {
+    "message": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。"
+  },
+  "optionsTitle": {
+    "message": "Gemini Spark 設定"
+  },
+  "enterForNewline": {
+    "message": "エンターを押したときに改行する"
+  },
+  "enterForNewlineDesc": {
+    "message": "(チェック時、送信は Ctrl+Enter または Cmd+Enter)"
+  }
+}

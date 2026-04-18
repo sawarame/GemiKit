@@ -1,0 +1,17 @@
+{
+  "extName": {
+    "message": "Gemini Spark"
+  },
+  "extDesc": {
+    "message": "Browser extension to enhance the Google Gemini web interface."
+  },
+  "optionsTitle": {
+    "message": "Gemini Spark Options"
+  },
+  "enterForNewline": {
+    "message": "Newline with Enter"
+  },
+  "enterForNewlineDesc": {
+    "message": "(When checked, use Ctrl+Enter or Cmd+Enter to submit)"
+  }
+}

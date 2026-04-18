@@ -1,3 +1,15 @@
+// i18n support
+const localize = (id: string, messageName: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+        el.innerText = chrome.i18n.getMessage(messageName);
+    }
+};
+
+localize('options-title', 'optionsTitle');
+localize('label-enter', 'enterForNewline');
+localize('label-enter-desc', 'enterForNewlineDesc');
+
 const checkbox = document.getElementById('enter-for-newline') as HTMLInputElement;
 
 if (checkbox) {
@@ -12,3 +24,4 @@ if (checkbox) {
         chrome.storage.sync.set({ enterForNewline: checkbox.checked });
     });
 }
+
