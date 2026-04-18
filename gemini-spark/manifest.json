@@ -1,10 +1,12 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "__MSG_extDesc__",
   "default_locale": "en",
-  "permissions": ["storage"],
+  "permissions": [
+    "storage"
+  ],
   "options_ui": {
     "page": "options.html",
     "open_in_tab": false
@@ -19,7 +21,9 @@
         "https://gemini.google.com/*",
         "https://notebooklm.google.com/*"
       ],
-      "js": ["js/content.js"]
+      "js": [
+        "js/content.js"
+      ]
     }
   ],
   "icons": {
