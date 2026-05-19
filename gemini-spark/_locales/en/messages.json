@@ -1,12 +1,12 @@
 {
   "extName": {
-    "message": "Gemini Spark"
+    "message": "Shiftless Enter for Gemini"
   },
   "extDesc": {
     "message": "Browser extension to enhance the Google Gemini web interface."
   },
   "optionsTitle": {
-    "message": "Gemini Spark Options"
+    "message": "Shiftless Enter for Gemini Options"
   },
   "enterForNewline": {
     "message": "Newline with Enter"

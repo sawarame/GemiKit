@@ -1,6 +1,6 @@
 {
-  "name": "gemini-spark",
-  "version": "1.0.3",
+  "name": "shiftless-enter-for-gemini",
+  "version": "1.0.4",
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

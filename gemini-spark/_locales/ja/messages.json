@@ -1,12 +1,12 @@
 {
   "extName": {
-    "message": "Gemini Spark"
+    "message": "Shiftless Enter for Gemini"
   },
   "extDesc": {
     "message": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。"
   },
   "optionsTitle": {
-    "message": "Gemini Spark 設定"
+    "message": "Shiftless Enter for Gemini 設定"
   },
   "enterForNewline": {
     "message": "エンターを押したときに改行する"
