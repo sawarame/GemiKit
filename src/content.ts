@@ -233,11 +233,19 @@ const downloadMD = async () => {
   // 3. DOMのクローンとサニタイズ（不要なUI要素の除去）
   const clone = element.cloneNode(true) as HTMLElement;
   
-  // 「Gemini との会話」「Gemini の回答」という不要な見出し要素（不可視要素など）があれば削除
+  // 「Gemini との会話」「Gemini の回答」という不要な見出し要素や、フッターの注意書きを削除
   clone.querySelectorAll('*').forEach(child => {
-      if (child.childNodes.length === 1 && child.textContent) {
+      if (child.textContent) {
           const text = child.textContent.trim();
-          if (text === 'Gemini との会話' || text === 'Gemini の回答') {
+          // 短い完全一致の要素
+          if (child.childNodes.length === 1 && (text === 'Gemini との会話' || text === 'Gemini の回答')) {
+              child.remove();
+          }
+          // 注意書きを含む最下層の要素
+          if (child.children.length === 0 && (
+              text.includes('Gemini は AI であり、間違えることがあります') || 
+              text.includes('Gemini may display inaccurate info')
+          )) {
               child.remove();
           }
       }
@@ -296,7 +304,13 @@ const downloadMD = async () => {
   });
 
   // コピーボタン、音声読み上げ、メニュー、SVGアイコンなどを削除
-  clone.querySelectorAll('button, svg, nav, header, footer, .hidden, [style*="display: none"], .mat-mdc-menu-panel').forEach(el => el.remove());
+  // 加えて、プロフィール画像、プロンプト入力エリアも削除
+  clone.querySelectorAll(`
+    button, svg, nav, header, footer, 
+    .hidden, [style*="display: none"], .mat-mdc-menu-panel,
+    user-avatar, model-avatar, img[alt*="プロフィール"], img[alt*="Profile"], img.avatar, .avatar-container,
+    chat-input, .chat-input, textarea, [contenteditable="true"], rich-textarea
+  `).forEach(el => el.remove());
 
   // 4. TurndownによるMarkdown変換
   const turndownService = new TurndownService({
