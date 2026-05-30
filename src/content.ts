@@ -1,3 +1,5 @@
+
+
 let enterForNewline = true; // Default value
 
 // Function to load the setting from storage
@@ -28,7 +30,7 @@ document.addEventListener('compositionend', () => {
     isComposing = false;
 });
 
-document.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', (event) => {
   // Skip if this is an event dispatched by our own script to avoid recursion
   if ((event as any)._isGeminiSparkEvent) {
     return;
@@ -47,31 +49,49 @@ document.addEventListener('keydown', (event) => {
 
   if (!activeElement) return;
 
-  const isTextArea = activeElement.tagName === 'TEXTAREA';
+  const isTextArea = activeElement.tagName === 'TEXTAREA' || activeElement.tagName === 'INPUT';
   const isContentEditable = activeElement.getAttribute('contenteditable') === 'true' || 
                              (activeElement as HTMLElement).isContentEditable;
 
-  // Check if we are in a relevant input area
-  const isNotebookLMInput = isTextArea && activeElement.classList.contains('query-box-input');
-  const isGeminiInput = isContentEditable && activeElement.closest('rich-textarea') !== null;
-  
-  // Generic check for other potential inputs on these domains
-  const isOtherInput = isContentEditable || (isTextArea && (
-    activeElement.closest('.textarea') !== null || 
-    activeElement.closest('notebook-textarea') !== null
-  ));
-
-  if (isNotebookLMInput || isGeminiInput || isOtherInput) {
+  if (isTextArea || isContentEditable) {
     // Send message with Cmd/Ctrl + Enter
     if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
       event.preventDefault();
-      event.stopPropagation();
+      event.stopImmediatePropagation();
       
-      // 1. Try to find and click the send button
-      const sendButton = document.querySelector('button.send-button, button.submit-button, button[aria-label*="Send"], button[aria-label*="送信"]');
+      // Helper function to find an element piercing through shadow DOMs
+      const findSendButton = (root: Document | ShadowRoot | Element): HTMLElement | null => {
+        // Use exact matches or specific attributes to avoid matching buttons that contain user text in aria-label
+        const selector = [
+          'button.send-button',
+          'button.submit-button',
+          'button[aria-label="Send message"]',
+          'button[aria-label="メッセージを送信"]',
+          'button[mattooltip="Send message"]',
+          'button[mattooltip="メッセージを送信"]',
+          'button[data-testid="send-button"]',
+          'button[aria-label="Send"]',
+          'button[aria-label="送信"]'
+        ].map(sel => sel + ':not([data-test-id="actions-menu-button"])').join(', ');
+
+        let found = root.querySelector(selector) as HTMLElement | null;
+        if (found) return found;
+
+        // Iterate over all elements to check their shadow roots
+        const allElements = root.querySelectorAll('*');
+        for (let i = 0; i < allElements.length; i++) {
+          if (allElements[i].shadowRoot) {
+            found = findSendButton(allElements[i].shadowRoot!);
+            if (found) return found;
+          }
+        }
+        return null;
+      };
+      
+      const sendButton = findSendButton(document);
       
       if (sendButton && !(sendButton as HTMLButtonElement).disabled) {
-        (sendButton as HTMLElement).click();
+        sendButton.click();
       } else {
         // 2. Fallback: Dispatch a PLAIN Enter key event (without Ctrl/Cmd)
         // This tricks the site into thinking a normal Enter was pressed, triggering its native send logic.
@@ -90,7 +110,7 @@ document.addEventListener('keydown', (event) => {
     // Insert a newline with Enter, only when not composing
     else if (event.key === 'Enter' && !event.shiftKey && !isComposing) {
       event.preventDefault();
-      event.stopPropagation();
+      event.stopImmediatePropagation();
       
       if (isTextArea) {
         // For standard TEXTAREA, we manually insert a newline

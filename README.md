@@ -1,6 +1,6 @@
-# Gemini Spark
+# GemiKit
 
-Google Gemini と NotebookLM のウェブインターフェースを強化するためのブラウザ拡張機能です。
+Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。
 
 ## 主な機能
 
@@ -14,7 +14,6 @@ Google Gemini と NotebookLM のウェブインターフェースを強化する
 ## 対応サイト
 
 - **Google Gemini** (`https://gemini.google.com`)
-- **NotebookLM** (`https://notebooklm.google.com`)
 
 ## インストール方法（開発者向け）
 
@@ -23,19 +22,19 @@ Google Gemini と NotebookLM のウェブインターフェースを強化する
     -   **Edge:** `edge://extensions`
 2.  ページの右上にある **「デベロッパーモード」** を有効にします。
 3.  **「パッケージ化されていない拡張機能を読み込む」** ボタンをクリックします。
-4.  このプロジェクトのファイルが保存されているフォルダ（`gemini-spark`）を選択します。
-5.  拡張機能の一覧に「Gemini Spark」が表示されればインストール完了です。
+4.  このプロジェクトのファイルが保存されているフォルダ（`package`）を選択します。
+5.  拡張機能の一覧に「GemiKit」が表示されればインストール完了です。
 
 ## 使い方
 
-1.  インストール後、Gemini (`https://gemini.google.com`) または NotebookLM (`https://notebooklm.google.com`) を開きます。
+1.  インストール後、Gemini (`https://gemini.google.com`) を開きます。
 2.  デフォルトでは、チャット入力欄で `Enter` キーを押すと改行が入力されます。
 3.  メッセージを送信するには、`Ctrl + Enter` (Macの場合は `Cmd + Enter`) を押してください。
 
 ## 設定方法
 
 1.  ブラウザの拡張機能管理ページを開きます。
-2.  「Gemini Spark」の「詳細」をクリックします。
+2.  「GemiKit」の「詳細」をクリックします。
 3.  「拡張機能のオプション」を選択します。
 4.  表示されたポップアップ画面で「エンターを押したときに改行する」のチェックボックスをオン/オフすることで、機能の有効/無効を切り替えられます。
 
