@@ -428,6 +428,13 @@ const injectFloatingButton = () => {
     .gemikit-menu-item:hover {
       background-color: var(--mat-menu-item-hover-state-layer-color, rgba(0,0,0,0.04));
     }
+    .gemikit-menu-item.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .gemikit-menu-item.disabled:hover {
+      background-color: transparent;
+    }
     .gemikit-menu-item svg {
       margin-right: 12px;
       flex-shrink: 0;
@@ -450,6 +457,9 @@ const injectFloatingButton = () => {
       }
       .gemikit-menu-item:hover {
         background-color: rgba(255, 255, 255, 0.05);
+      }
+      .gemikit-menu-item.disabled:hover {
+        background-color: transparent;
       }
     }
   `;
@@ -484,11 +494,45 @@ const injectFloatingButton = () => {
   const mdBtn = container.querySelector('#gemikit-md-btn') as HTMLButtonElement;
   mdBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    if (mdBtn.disabled) return;
     downloadMD().catch(err => {
       console.error('MD Download failed:', err);
       alert('Markdownの生成中にエラーが発生しました。');
     });
   });
+
+  // MDボタンの活性/非活性状態を更新する関数
+  const updateMdButtonState = () => {
+    const isNewChat = window.location.pathname === '/app' || window.location.pathname === '/app/';
+    const hasChatHistory = document.querySelector('user-query, [class*="user-query"], model-response, [class*="model-response"]') !== null;
+    
+    if (isNewChat && !hasChatHistory) {
+      mdBtn.classList.add('disabled');
+      mdBtn.disabled = true;
+      mdBtn.title = "新規チャット画面では使用できません";
+    } else {
+      mdBtn.classList.remove('disabled');
+      mdBtn.disabled = false;
+      mdBtn.title = "";
+    }
+  };
+
+  // 初期状態の設定
+  updateMdButtonState();
+
+  // SPAでの画面遷移やチャット開始を検知してボタンの状態を更新
+  let lastPathname = window.location.pathname;
+  let lastHistoryCount = 0;
+  setInterval(() => {
+    const currentPathname = window.location.pathname;
+    const currentHistoryCount = document.querySelectorAll('user-query, [class*="user-query"], model-response, [class*="model-response"]').length;
+    
+    if (currentPathname !== lastPathname || currentHistoryCount !== lastHistoryCount) {
+      lastPathname = currentPathname;
+      lastHistoryCount = currentHistoryCount;
+      updateMdButtonState();
+    }
+  }, 1000);
 
   // Checkbox state management
   const checkbox = container.querySelector('#gemikit-enter-checkbox') as HTMLInputElement;
