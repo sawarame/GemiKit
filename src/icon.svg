@@ -13,26 +13,30 @@
     <rect width="128" height="128" rx="28" fill="url(#gemini-gradient)"/>
     
     <!-- Sparkles -->
-    <!-- Large Sparkle (Bottom Left) -->
-    <g transform="translate(36, 82)">
+    <!-- Large Sparkle (Top Left) -->
+    <g transform="translate(28, 32) scale(0.7)">
         <path d="M 0 -24 C 0 -9 9 0 24 0 C 9 0 0 9 0 24 C 0 9 -9 0 -24 0 C -9 0 0 -9 0 -24 Z" fill="#FFFFFF"/>
     </g>
     
-    <!-- Medium Sparkle (Top Center) -->
-    <g transform="translate(56, 36)">
+    <!-- Medium Sparkle (Bottom Right) -->
+    <g transform="translate(100, 100) scale(0.6)">
         <path d="M 0 -18 C 0 -7 7 0 18 0 C 7 0 0 7 0 18 C 0 7 -7 0 -18 0 C -7 0 0 -7 0 -18 Z" fill="#FFFFFF" opacity="0.95"/>
     </g>
     
     <!-- Tiny decorative Sparkle (Top Right) -->
-    <g transform="translate(92, 20) scale(0.35)">
+    <g transform="translate(104, 28) scale(0.35)">
         <path d="M 0 -30 C 0 -10 10 0 30 0 C 10 0 0 10 0 30 C 0 10 -10 0 -30 0 C -10 0 0 -10 0 -30 Z" fill="#FFFFFF" opacity="0.8"/>
     </g>
 
-    <!-- Return / Enter Arrow -->
-    <g opacity="1">
-        <!-- Arrow Stalk: down and curve left -->
-        <path d="M 106 40 L 106 68 A 20 20 0 0 1 86 88 L 64 88" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- Arrow Head (pointing left, hitting the Large Sparkle) -->
-        <path d="M 82 70 L 64 88 L 82 106" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Toolbox Icon -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" transform="translate(0, 4)">
+        <!-- Handle -->
+        <path d="M 48 52 L 48 40 C 48 33 52 28 58 28 L 70 28 C 76 28 80 33 80 40 L 80 52" />
+        <!-- Body -->
+        <rect x="24" y="52" width="80" height="48" rx="8" />
+        <!-- Lid horizontal line -->
+        <line x1="24" y1="72" x2="104" y2="72" />
+        <!-- Center latch -->
+        <rect x="56" y="66" width="16" height="12" rx="2" fill="#FFFFFF" />
     </g>
 </svg>
