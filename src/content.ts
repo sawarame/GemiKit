@@ -2,12 +2,22 @@ import TurndownService from 'turndown';
 import { tables } from 'turndown-plugin-gfm';
 
 let enterForNewline = true; // Default value
+let enableGemikit = true;
+
+const updateGemikitState = () => {
+  const container = document.getElementById('gemikit-floating-container');
+  if (container) {
+    container.style.display = enableGemikit ? '' : 'none';
+  }
+};
 
 // Function to load the setting from storage
 const loadSetting = () => {
   // Default to 'true' (feature enabled) if no setting is found.
-  chrome.storage.sync.get({ enterForNewline: true }, (data) => {
+  chrome.storage.sync.get({ enterForNewline: true, enableGemikit: true }, (data) => {
     enterForNewline = data.enterForNewline;
+    enableGemikit = data.enableGemikit;
+    updateGemikitState();
   });
 };
 
@@ -16,8 +26,14 @@ loadSetting();
 
 // Listen for changes in settings and update the variable
 chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === 'sync' && changes.enterForNewline) {
-    enterForNewline = changes.enterForNewline.newValue;
+  if (namespace === 'sync') {
+    if (changes.enterForNewline !== undefined) {
+      enterForNewline = changes.enterForNewline.newValue;
+    }
+    if (changes.enableGemikit !== undefined) {
+      enableGemikit = changes.enableGemikit.newValue;
+      updateGemikitState();
+    }
   }
 });
 
@@ -38,7 +54,7 @@ window.addEventListener('keydown', (event) => {
   }
 
   // Only apply custom behavior if the setting is enabled
-  if (!enterForNewline) {
+  if (!enableGemikit || !enterForNewline) {
     return;
   }
 
@@ -549,6 +565,9 @@ const injectFloatingButton = () => {
       checkbox.checked = changes.enterForNewline.newValue;
     }
   });
+
+  // Initial state check for the floating button display
+  updateGemikitState();
 };
 
 // body要素が構築されるのを待ってからボタンを追加する
