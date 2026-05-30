@@ -1,23 +1,23 @@
 {
-  "name": "shiftless-enter-for-gemini",
-  "version": "1.0.4",
+  "name": "gemikit",
+  "version": "2.0.0",
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && rm -rf gemini-spark.zip && (cd gemini-spark && zip -r ../gemini-spark.zip .)",
+    "build": "tsc && rm -rf package.zip && (cd package && zip -r ../package.zip .)",
     "generate-icons": "node scripts/generate-icons.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sawarame/gemini-spark.git"
+    "url": "git+https://github.com/sawarame/package.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sawarame/gemini-spark.git/issues"
+    "url": "https://github.com/sawarame/package.git/issues"
   },
-  "homepage": "https://github.com/sawarame/gemini-spark.git#readme",
+  "homepage": "https://github.com/sawarame/package.git#readme",
   "devDependencies": {
     "@types/chrome": "^0.1.24",
     "sharp": "^0.34.5",

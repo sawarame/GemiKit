@@ -51,4 +51,4 @@ Google Gemini と NotebookLM のウェブインターフェースを強化する
     ```bash
     npm run build
     ```
-    コンパイルされたファイルは `gemini-spark/js` ディレクトリに出力されます。
+    コンパイルされたファイルは `package/js` ディレクトリに出力されます。

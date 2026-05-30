@@ -1,12 +1,12 @@
 {
   "extName": {
-    "message": "Shiftless Enter for Gemini"
+    "message": "GemiKit"
   },
   "extDesc": {
     "message": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。"
   },
   "optionsTitle": {
-    "message": "Shiftless Enter for Gemini 設定"
+    "message": "GemiKit 設定"
   },
   "enterForNewline": {
     "message": "エンターを押したときに改行する"

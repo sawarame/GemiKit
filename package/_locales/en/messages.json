@@ -1,12 +1,12 @@
 {
   "extName": {
-    "message": "Shiftless Enter for Gemini"
+    "message": "GemiKit"
   },
   "extDesc": {
     "message": "Browser extension to enhance the Google Gemini web interface."
   },
   "optionsTitle": {
-    "message": "Shiftless Enter for Gemini Options"
+    "message": "GemiKit Options"
   },
   "enterForNewline": {
     "message": "Newline with Enter"
