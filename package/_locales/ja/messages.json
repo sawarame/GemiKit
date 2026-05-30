@@ -8,10 +8,7 @@
   "optionsTitle": {
     "message": "GemiKit 設定"
   },
-  "enterForNewline": {
-    "message": "エンターを押したときに改行する"
-  },
-  "enterForNewlineDesc": {
-    "message": "(チェック時、送信は Ctrl+Enter または Cmd+Enter)"
+  "enableGemikit": {
+    "message": "GemiKitを有効にする"
   }
 }

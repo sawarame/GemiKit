@@ -8,10 +8,7 @@
   "optionsTitle": {
     "message": "GemiKit Options"
   },
-  "enterForNewline": {
-    "message": "Newline with Enter"
-  },
-  "enterForNewlineDesc": {
-    "message": "(When checked, use Ctrl+Enter or Cmd+Enter to submit)"
+  "enableGemikit": {
+    "message": "Enable GemiKit"
   }
 }

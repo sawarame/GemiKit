@@ -7,21 +7,19 @@ const localize = (id: string, messageName: string) => {
 };
 
 localize('options-title', 'optionsTitle');
-localize('label-enter', 'enterForNewline');
-localize('label-enter-desc', 'enterForNewlineDesc');
+localize('label-enable', 'enableGemikit');
 
-const checkbox = document.getElementById('enter-for-newline') as HTMLInputElement;
+const checkbox = document.getElementById('enable-gemikit') as HTMLInputElement;
 
 if (checkbox) {
     // Load saved settings and set the initial state of the checkbox.
     // Default to 'true' (feature enabled) if no setting is found.
-    chrome.storage.sync.get({ enterForNewline: true }, (data) => {
-        checkbox.checked = data.enterForNewline;
+    chrome.storage.sync.get({ enableGemikit: true }, (data) => {
+        checkbox.checked = data.enableGemikit;
     });
 
     // When the checkbox is changed, save the new setting.
     checkbox.addEventListener('change', () => {
-        chrome.storage.sync.set({ enterForNewline: checkbox.checked });
+        chrome.storage.sync.set({ enableGemikit: checkbox.checked });
     });
 }
-
