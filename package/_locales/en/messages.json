@@ -3,7 +3,7 @@
     "message": "GemiKit"
   },
   "extDesc": {
-    "message": "Browser extension to enhance the Google Gemini web interface."
+    "message": "Enhance your Google Gemini web interface. Download chats as Markdown, type newlines with Enter, and send messages with Ctrl+Enter."
   },
   "optionsTitle": {
     "message": "GemiKit Options"

@@ -3,7 +3,7 @@
     "message": "GemiKit"
   },
   "extDesc": {
-    "message": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。"
+    "message": "Google Geminiの体験を向上させます。チャット履歴のMarkdown形式での保存、Enterキーでの改行、Ctrl+Enterでの確実な送信をサポートします。"
   },
   "optionsTitle": {
     "message": "GemiKit 設定"
