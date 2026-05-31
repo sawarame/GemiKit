@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "GemiKit"
+    "message": "GemiKit (Toolkit for Google Gemini)"
   },
   "extDesc": {
     "message": "Google Geminiの体験を向上させます。チャット履歴のMarkdown形式での保存、Enterキーでの改行、Ctrl+Enterでの確実な送信をサポートします。"

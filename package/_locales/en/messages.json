@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "GemiKit"
+    "message": "GemiKit (Toolkit for Google Gemini)"
   },
   "extDesc": {
     "message": "Enhance your Google Gemini web interface. Download chats as Markdown, type newlines with Enter, and send messages with Ctrl+Enter."
