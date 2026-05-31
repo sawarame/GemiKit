@@ -4,7 +4,7 @@
   "description": "Google Gemini のウェブインターフェースを強化するためのブラウザ拡張機能です。",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild src/content.ts --bundle --outfile=package/js/content.js && esbuild src/options.ts --bundle --outfile=package/js/options.js && rm -rf package.zip && (cd package && zip -r ../package.zip .)",
+    "build": "rimraf ./package/js && rimraf package.zip && npx webpack && (cd package && zip -r ../package.zip .)",
     "generate-icons": "node scripts/generate-icons.js"
   },
   "repository": {
@@ -21,9 +21,12 @@
   "devDependencies": {
     "@types/chrome": "^0.1.24",
     "@types/turndown": "^5.0.6",
-    "esbuild": "^0.28.0",
+    "rimraf": "^6.1.3",
     "sharp": "^0.34.5",
-    "typescript": "^5.9.3"
+    "ts-loader": "^9.6.0",
+    "typescript": "^5.9.3",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3"
   },
   "dependencies": {
     "turndown": "^7.2.4",
