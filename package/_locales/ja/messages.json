@@ -10,5 +10,17 @@
   },
   "enableGemikit": {
     "message": "GemiKitを有効にする"
+  },
+  "downloadMarkdown": {
+    "message": "Markdown形式でダウンロード"
+  },
+  "disableEnterToSubmit": {
+    "message": "Enterで改行"
+  },
+  "downloadError": {
+    "message": "Markdownの生成中にエラーが発生しました。"
+  },
+  "disabledInNewChat": {
+    "message": "新規チャット画面では使用できません"
   }
 }

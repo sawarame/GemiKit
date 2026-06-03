@@ -386,8 +386,8 @@ const injectFloatingButton = () => {
       font-family: "Google Sans", Roboto, Arial, sans-serif;
     }
     #gemikit-floating-container:hover {
-      width: 260px;
-      height: 150px;
+      width: 280px;
+      height: 164px;
       border-radius: 16px;
       background-color: var(--gem-sys-color--surface-container-high, #f8f9fa);
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
@@ -412,8 +412,8 @@ const injectFloatingButton = () => {
       position: absolute;
       bottom: 54px;
       left: 0;
-      width: 260px;
-      padding: 8px 0;
+      width: 100%;
+      padding: 12px 0 8px 0;
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
@@ -486,17 +486,21 @@ const injectFloatingButton = () => {
 
   const iconUrl = chrome.runtime.getURL('images/icon48.png');
 
+  // i18n対応: messages.jsonから各言語の文字列を取得
+  const textDownloadMarkdown = chrome.i18n.getMessage("downloadMarkdown") || "Markdown形式でダウンロード";
+  const textDisableEnterToSubmit = chrome.i18n.getMessage("disableEnterToSubmit") || "Enterで改行";
+
   container.innerHTML = `
     <div id="gemikit-menu-panel">
       <button id="gemikit-md-btn" class="gemikit-menu-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
           <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
         </svg>
-        Markdown形式でダウンロード
+        ${textDownloadMarkdown}
       </button>
       <label class="gemikit-menu-item">
         <input type="checkbox" id="gemikit-enter-checkbox">
-        <span>Enterで送信させず改行</span>
+        <span>${textDisableEnterToSubmit}</span>
       </label>
     </div>
     <div id="gemikit-fab-icon">
@@ -513,7 +517,8 @@ const injectFloatingButton = () => {
     if (mdBtn.disabled) return;
     downloadMD().catch(err => {
       console.error('MD Download failed:', err);
-      alert('Markdownの生成中にエラーが発生しました。');
+      const textDownloadError = chrome.i18n.getMessage("downloadError") || "Markdownの生成中にエラーが発生しました。";
+      alert(textDownloadError);
     });
   });
 
@@ -525,7 +530,7 @@ const injectFloatingButton = () => {
     if (isNewChat && !hasChatHistory) {
       mdBtn.classList.add('disabled');
       mdBtn.disabled = true;
-      mdBtn.title = "新規チャット画面では使用できません";
+      mdBtn.title = chrome.i18n.getMessage("disabledInNewChat") || "新規チャット画面では使用できません";
     } else {
       mdBtn.classList.remove('disabled');
       mdBtn.disabled = false;
