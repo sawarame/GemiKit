@@ -10,5 +10,17 @@
   },
   "enableGemikit": {
     "message": "Enable GemiKit"
+  },
+  "downloadMarkdown": {
+    "message": "Download as Markdown"
+  },
+  "disableEnterToSubmit": {
+    "message": "Enter for newline"
+  },
+  "downloadError": {
+    "message": "An error occurred while generating Markdown."
+  },
+  "disabledInNewChat": {
+    "message": "Not available on the new chat screen"
   }
 }
