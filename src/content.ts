@@ -393,6 +393,24 @@ const injectFloatingButton = () => {
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transform: translateY(-2px);
     }
+    #gemikit-brand-name {
+      position: absolute;
+      bottom: 18px;
+      left: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      color: inherit;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    #gemikit-floating-container:hover #gemikit-brand-name {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      transition-delay: 0.1s; /* メニューの表示タイミングと合わせる */
+    }
     #gemikit-fab-icon {
       position: absolute;
       bottom: 0;
@@ -503,6 +521,7 @@ const injectFloatingButton = () => {
         <span>${textDisableEnterToSubmit}</span>
       </label>
     </div>
+    <span id="gemikit-brand-name">GemiKit</span>
     <div id="gemikit-fab-icon">
       <img src="${iconUrl}" alt="GemiKit">
     </div>
