@@ -202,7 +202,9 @@ const autoScrollToTop = async (): Promise<void> => {
     alignItems: 'center', justifyContent: 'center', color: 'white',
     fontSize: '24px', fontWeight: 'bold', fontFamily: 'sans-serif'
   });
-  overlay.innerHTML = '<div style="text-align:center;">過去の履歴を読み込んでいます...<br><span style="font-size:16px;font-weight:normal;opacity:0.8;margin-top:8px;display:block;">（画面が自動でスクロールされます。このままお待ちください）</span></div>';
+  const loadingHistoryMsg = chrome.i18n.getMessage("loadingHistory") || "過去の履歴を読み込んでいます...";
+  const loadingHistorySubMsg = chrome.i18n.getMessage("loadingHistorySub") || "（画面が自動でスクロールされます。このままお待ちください）";
+  overlay.innerHTML = `<div style="text-align:center;">${loadingHistoryMsg}<br><span style="font-size:16px;font-weight:normal;opacity:0.8;margin-top:8px;display:block;">${loadingHistorySubMsg}</span></div>`;
   document.body.appendChild(overlay);
 
   return new Promise((resolve) => {
@@ -254,7 +256,10 @@ const downloadMD = async () => {
       if (child.textContent) {
           const text = child.textContent.trim();
           // 短い完全一致の要素
-          if (child.childNodes.length === 1 && (text === 'Gemini との会話' || text === 'Gemini の回答')) {
+          if (child.childNodes.length === 1 && (
+              text === 'Gemini との会話' || text === 'Gemini の回答' ||
+              text === 'Conversation with Gemini' || text === 'Gemini response'
+          )) {
               child.remove();
           }
           // 注意書きを含む最下層の要素
@@ -285,13 +290,14 @@ const downloadMD = async () => {
       // 既存の「あなたのプロンプト」という見出し（不可視要素など）があれば削除
       const allChildren = node.querySelectorAll('*');
       allChildren.forEach(child => {
-          if (child.childNodes.length === 1 && child.textContent && child.textContent.trim() === 'あなたのプロンプト') {
+          if (child.childNodes.length === 1 && child.textContent && 
+             (child.textContent.trim() === 'あなたのプロンプト' || child.textContent.trim() === 'Your prompt')) {
               child.remove();
           }
       });
 
       const heading = document.createElement('h2');
-      heading.textContent = '👤 あなた';
+      heading.textContent = chrome.i18n.getMessage("yourHeading") || '👤 あなた';
       node.insertBefore(heading, node.firstChild);
       
       // テキストをブロッククオート(引用)で囲んで見やすくする（1階層のみ）
@@ -315,7 +321,7 @@ const downloadMD = async () => {
 
   topLevelModelNodes.forEach(node => {
       const heading = document.createElement('h2');
-      heading.textContent = '✨ Gemini の回答';
+      heading.textContent = chrome.i18n.getMessage("geminiHeading") || '✨ Gemini の回答';
       node.insertBefore(heading, node.firstChild);
   });
 

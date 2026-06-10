@@ -22,5 +22,17 @@
   },
   "disabledInNewChat": {
     "message": "Not available on the new chat screen"
+  },
+  "loadingHistory": {
+    "message": "Loading past history..."
+  },
+  "loadingHistorySub": {
+    "message": "(The screen will scroll automatically. Please wait)"
+  },
+  "yourHeading": {
+    "message": "👤 You"
+  },
+  "geminiHeading": {
+    "message": "✨ Gemini's response"
   }
 }
